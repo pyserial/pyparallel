@@ -31,7 +31,7 @@ def read(fname):
 setup(
     name='pyparallel',
     description='Python Parallel Port Extension',
-    version='0.2',
+    version='0.2.2',
     author='Chris Liechti',
     author_email='cliechti@gmx.net',
     url='https://github.com/pyserial/pyparallel',
