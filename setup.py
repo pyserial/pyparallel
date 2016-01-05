@@ -38,6 +38,7 @@ setup(
     packages=['parallel'],
     license='BSD',
     long_description=read('README.rst'),
+    keywords='parallel port parport lpt printer ppdev',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
