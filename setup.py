@@ -6,7 +6,7 @@ except ImportError:
     from distutils.core import setup
 import sys
 
-#windows installer:
+# windows installer:
 # python setup.py bdist_wininst
 
 # patch distutils if it can't cope with the "classifiers" or
@@ -24,26 +24,32 @@ else:
     # no dependencies
     data_files = {}
 
+
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
 setup(
-    name = "pyparallel",
-    description="Python Parallel Port Extension",
-    version="0.2",
-    author="Chris Liechti",
-    author_email="cliechti@gmx.net",
-    url="http://pyserial.sourceforge.net/",
+    name='pyparallel',
+    description='Python Parallel Port Extension',
+    version='0.2.2',
+    author='Chris Liechti',
+    author_email='cliechti@gmx.net',
+    url='https://github.com/pyserial/pyparallel',
     packages=['parallel'],
-    license="Python",
-    long_description="Python Parallel Port Extension for Win32, Linux, BSD",
-    classifiers = [
+    license='BSD',
+    long_description=read('README.rst'),
+    keywords='parallel port parport lpt printer ppdev',
+    classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: Python Software Foundation License',
+        'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
         'Operating System :: POSIX',
         'Operating System :: Microsoft :: Windows',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
         'Topic :: Communications',
         'Topic :: Software Development :: Libraries',
     ],
-    package_data = data_files
+    package_data=data_files
 )
