@@ -1,7 +1,7 @@
-#pyparallel driver for win32
-#see __init__.py
+# pyparallel driver for win32
+# see __init__.py
 #
-#(C) 2002 Chris Liechti <cliechti@gmx.net>
+# (C) 2002 Chris Liechti <cliechti@gmx.net>
 # this is distributed under a free software license, see license.txt
 #
 # thanks to Dincer Aydin dinceraydin@altavista.net for his work on the
@@ -43,6 +43,8 @@
 #     . . . . . * . .  Initialize ... (pin 16), 1=high,0=low  (true)
 #     . . . . * . . .  Select ....... (pin 17), 1=low, 0=high (inverted)
 #     * * * * . . . .  Unused
+import ctypes
+import os
 
 LPT1 = 0
 LPT2 = 1
@@ -50,20 +52,18 @@ LPT2 = 1
 LPT1_base = 0x0378
 LPT2_base = 0x0278
 
-import ctypes
-import os
-#need to patch PATH so that the DLL can be found and loaded
+# need to patch PATH so that the DLL can be found and loaded
 os.environ['PATH'] = os.environ['PATH'] + ';' + os.path.abspath(os.path.dirname(__file__))
-#fake module, names of the functions are the same as in the old _pyparallel
-#python extension in earlier versions of this modules
+# fake module, names of the functions are the same as in the old _pyparallel
+# python extension in earlier versions of this modules
 _pyparallel = ctypes.windll.simpleio
-#need to initialize giveio on WinNT based systems
+# need to initialize giveio on WinNT based systems
 if _pyparallel.init():
     raise IOError('Could not access the giveio driver which is required on NT based systems.')
 
 
 class Parallel:
-    def __init__(self, port = LPT1):
+    def __init__(self, port=LPT1):
         if port == LPT1:
             self.dataRegAdr = LPT1_base
         elif port == LPT2:
@@ -71,13 +71,13 @@ class Parallel:
         else:
             raise ValueError("No such port available - expecting a number")
         self.statusRegAdr = self.dataRegAdr + 1
-        self.ctrlRegAdr   = self.dataRegAdr + 2
+        self.ctrlRegAdr = self.dataRegAdr + 2
         self.ctrlReg = _pyparallel.inp(self.ctrlRegAdr)
 
     def setData(self, value):
         _pyparallel.outp(self.dataRegAdr, value)
 
-    def setDataDir( self, level):
+    def setDataDir(self, level):
         """set for port as input, clear for output"""
         if level:
             self.ctrlReg |= 0x20
@@ -91,7 +91,7 @@ class Parallel:
         if level:
             self.ctrlReg = self.ctrlReg & ~0x01
         else:
-            self.ctrlReg = self.ctrlReg |  0x01
+            self.ctrlReg = self.ctrlReg | 0x01
         _pyparallel.outp(self.ctrlRegAdr, self.ctrlReg)
 
     def setAutoFeed(self, level):
@@ -99,13 +99,13 @@ class Parallel:
         if level:
             self.ctrlReg = self.ctrlReg & ~0x02
         else:
-            self.ctrlReg = self.ctrlReg |  0x02
+            self.ctrlReg = self.ctrlReg | 0x02
         _pyparallel.outp(self.ctrlRegAdr, self.ctrlReg)
 
     def setInitOut(self, level):
         """initialize bit"""
         if level:
-            self.ctrlReg = self.ctrlReg |  0x04
+            self.ctrlReg = self.ctrlReg | 0x04
         else:
             self.ctrlReg = self.ctrlReg & ~0x04
         _pyparallel.outp(self.ctrlRegAdr, self.ctrlReg)
@@ -115,7 +115,7 @@ class Parallel:
         if level:
             self.ctrlReg = self.ctrlReg & ~0x08
         else:
-            self.ctrlReg = self.ctrlReg |  0x08
+            self.ctrlReg = self.ctrlReg | 0x08
         _pyparallel.outp(self.ctrlRegAdr, self.ctrlReg)
 
     def getInError(self):
