@@ -24,7 +24,7 @@ def _IO(type, nr):
     return _IOC(_IOC_NONE, type, nr, 0)
 
 
-def _IOR(type, nr,size):
+def _IOR(type, nr, size):
     return _IOC(_IOC_READ, type, nr, sizeof(size))
 
 

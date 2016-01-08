@@ -12,21 +12,28 @@ class BitaccessMeta(type):
         # data bits
         for bit in range(8):
             mask = 1 << bit
+
             def getter(self, mask=mask):
                 return (self.getData() & mask) != 0
+
             def setter(self, b, mask=mask):
                 if b:
                     self.setData(self.getData() | mask)
                 else:
                     self.setData(self.getData() & ~mask)
+
             setattr(klass, "D%d" % bit, property(getter, setter, "Access databit %d" % bit))
+
         # nibbles
         for name, shift, width in [('D0_D3', 0, 4), ('D4_D7', 4, 4)]:
             mask = (1 << width) - 1
+
             def getter(self, shift=shift, mask=mask):
                 return (self.getData() >> shift) & mask
+
             def setter(self, b, shift=shift, mask=mask):
                 self.setData((self.getData() & ~(mask << shift)) | ((b & mask) << shift))
+
             setattr(klass, name, property(getter, setter, "Access to %s" % name))
         return klass
 
@@ -53,7 +60,6 @@ class VirtualParallelPort:
     # outputs just store a tuple with (action, value) pair
     def setDataStrobe(self, value):
         self._last = ('setDataStrobe', value)
-
 
 
 # testing
