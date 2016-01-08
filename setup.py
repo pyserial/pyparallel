@@ -36,6 +36,9 @@ setup(
     author_email='cliechti@gmx.net',
     url='https://github.com/pyserial/pyparallel',
     packages=['parallel'],
+    setup_requires=[
+        "flake8"
+    ]
     license='BSD',
     long_description=read('README.rst'),
     keywords='parallel port parport lpt printer ppdev',
