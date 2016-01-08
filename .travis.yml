@@ -1,4 +1,4 @@
-# Copyright Roger Meier <cliechti@gmx.net>
+# Copyright 2016  Chris Liechti <cliechti@gmx.net>
 # SPDX-License-Identifier:    BSD-3-Clause
 
 language: python
@@ -9,8 +9,9 @@ python:
   - 3.3
   - 3.4
   - 3.5
-  - pypy
+#  - pypy
 
 script:
   - python setup.py install
+  - python setup.py flake8
 #  - python test/test.py loop://
