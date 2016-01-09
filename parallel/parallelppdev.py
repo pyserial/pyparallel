@@ -363,7 +363,7 @@ class Parallel:
         """
         ret = struct.pack('ll', 0, 0)
         ret = fcntl.ioctl(self._fd, PPGETTIME, ret)
-        return timevalToFloat(ret)
+        return self.timevalToFloat(ret)
 
     def PPSETTIME(self, time):
         """
@@ -371,7 +371,7 @@ class Parallel:
         'time' is the new time-out in seconds; floating-point values
         are acceptable.
         """
-        fcntl.ioctl(self._fd, PPSETTIME, floatToTimeval(time))
+        fcntl.ioctl(self._fd, PPSETTIME, self.floatToTimeval(time))
 
     def PPGETMODES(self):
         """
