@@ -1,6 +1,22 @@
-=============================================
- pyParallel [in development]  |build-status|
-=============================================
+============================
+ pyParallel [in development]
+============================
+
+.. image:: https://travis-ci.org/pyserial/pyparallel.svg?branch=master
+   :target: https://travis-ci.org/pyserial/pyparallel
+   :alt: Build Status
+
+.. image:: https://img.shields.io/pypi/dw/pyparallel.svg
+   :target: https://pypi.python.org/pypi/pyparallel/
+   :alt: PyPI Downloads
+
+.. image:: https://img.shields.io/pypi/v/pyparallel.svg
+   :target: https://pypi.python.org/pypi/pyparallel/
+   :alt: Latest PyPI version
+
+.. image:: https://img.shields.io/pypi/l/pyparallel.svg
+   :target: https://pypi.python.org/pypi/pyparallel/
+   :alt: License
 
 Overview
 ========
@@ -70,7 +86,3 @@ References
 - Java@IBM http://www-106.ibm.com/developerworks/java/jdk/ (JavaComm
   links are on the download page for the respecive platform jdk)
 - Java@SUN http://java.sun.com/products/
-
-.. |build-status| image:: https://travis-ci.org/pyserial/pyparallel.svg?branch=master
-   :target: https://travis-ci.org/pyserial/pyparallel
-   :alt: Build status
