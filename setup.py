@@ -4,6 +4,7 @@ try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
+import os
 import sys
 
 # windows installer:
@@ -16,7 +17,6 @@ if sys.version < '2.2.3':
     DistributionMetadata.classifiers = None
     DistributionMetadata.download_url = None
 
-import os
 if os.name == 'nt':
     # set dependencies for windows version
     data_files = {'parallel': ['simpleio.dll']}

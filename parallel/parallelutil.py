@@ -4,6 +4,7 @@
 #
 # SPDX-License-Identifier:    BSD-3-Clause
 
+
 class BitaccessMeta(type):
     """meta class that adds bit access properties to a
     parallel port implementation"""
