@@ -1,3 +1,9 @@
+#!/bin/env python
+#
+# (C) 2002 Chris Liechti <cliechti@gmx.net>
+#
+# SPDX-License-Identifier:    BSD-3-Clause
+
 class BitaccessMeta(type):
     """meta class that adds bit access properties to a
     parallel port implementation"""

@@ -2,7 +2,8 @@
 # see __init__.py
 #
 # (C) 2002 Chris Liechti <cliechti@gmx.net>
-# this is distributed under a free software license, see license.txt
+#
+# SPDX-License-Identifier:    BSD-3-Clause
 #
 # thanks to Dincer Aydin dinceraydin@altavista.net for his work on the
 # winioport module: www.geocities.com/dinceraydin/ the graphic below is

@@ -2,7 +2,8 @@
 # this is a wrapper module for different platform implementations
 #
 # (C)2001-2002 Chris Liechti <cliechti@gmx.net>
-# this is distributed under a free software license, see license.txt
+#
+# SPDX-License-Identifier:    BSD-3-Clause
 
 import os
 VERSION = "0.3"
