@@ -27,9 +27,10 @@ possible too but not yet integrated.
 This module is still under development. But it may be useful for
 developers.
 The Windows version needs a compiled extension and the giveio.sys driver
-for Windows NT/2k/XP. It uses ctypes to access functions in a prebuilt DLL.
+for Windows NT/2k/XP. It uses ``ctypes`` to access functions in a prebuilt
+DLL.
 
-It is released under a free software license, see LICENSE.txt for more
+It is released under a free software license, see LICENSE.rst for more
 details.
 
 Copyright (C) 2001-2016 Chris Liechti cliechti@gmx.net
@@ -82,7 +83,4 @@ https://github.com/pyserial/pyparallel/tree/master/examples
 References
 ==========
 - Python: http://www.python.org
-- Jython: http://www.jython.org
-- Java@IBM http://www-106.ibm.com/developerworks/java/jdk/ (JavaComm
-  links are on the download page for the respecive platform jdk)
-- Java@SUN http://java.sun.com/products/
+
