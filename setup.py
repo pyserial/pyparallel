@@ -17,16 +17,10 @@ if sys.version < '2.2.3':
     DistributionMetadata.classifiers = None
     DistributionMetadata.download_url = None
 
-if os.name == 'nt':
-    # set dependencies for windows version
-    data_files = {'parallel': ['simpleio.dll']}
-else:
-    # no dependencies
-    data_files = {}
-
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
 
 setup(
     name='pyparallel',
@@ -35,7 +29,9 @@ setup(
     author='Chris Liechti',
     author_email='cliechti@gmx.net',
     url='https://github.com/pyserial/pyparallel',
-    packages=['parallel'],
+    packages=['parallel', 'parallel.win32'],
+    package_dir={'parallel': 'parallel',
+                 'parallel.win32': 'src/win32'},
     setup_requires=[
         "flake8"
     ],
@@ -54,5 +50,5 @@ setup(
         'Topic :: Communications',
         'Topic :: Software Development :: Libraries',
     ],
-    package_data=data_files
+    include_package_data=True
 )
