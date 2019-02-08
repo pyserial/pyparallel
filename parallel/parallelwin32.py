@@ -54,7 +54,8 @@ LPT1_base = 0x0378
 LPT2_base = 0x0278
 
 # need to patch PATH so that the DLL can be found and loaded
-os.environ['PATH'] = os.environ['PATH'] + ';' + os.path.abspath(os.path.dirname(__file__))
+dll_path = os.path.abspath(os.path.dirname(__file__)) + '\\win32'
+os.environ['PATH'] = os.environ['PATH'] + ';' + dll_path
 # fake module, names of the functions are the same as in the old _pyparallel
 # python extension in earlier versions of this modules
 _pyparallel = ctypes.windll.simpleio
